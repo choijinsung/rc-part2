@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+  <link rel="stylesheet" href="./jquery-ui.css">
+  <link rel="stylesheet" href="./main.css">
+  <style>
+    .toggler { width: 500px; height: 200px; }
+    #button { padding: .5em 1em; text-decoration: none; }
+    #effect { width: 240px; height: 170px; padding: 0.4em; position: relative; }
+    #effect h3 { margin: 0; padding: 0.4em; text-align: center; }
+    </style>
+  <script src="./jquery-3.6.1.js"></script>
+  <script src="./jquery-ui.js"></script>
+  <script>
+    $( function() {
+      $( "#datepicker" ).datepicker({
+        prevText: "이전",
+        nextText: "다음",
+        monthNames: [ "Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],
+        dayNamesMin: [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ],
+      });
+    } );
+    </script>
+    
+      <script type="text/javascript">
+        $(document).ready(function() {
+          $("label + input").css("color", "brown").val("빈 칸을 입력해 주세요.");
+          $("#password").val("");
+          $("#toggle-btn").click(function() {
+            $(".toggler").toggle();
+          });
+          $("#flip").click(function() {
+            $(".container").slideDown("slow");
+          });
+        });
+      </script>
+</head>
+<body>
+  <div id="flip">회원가입 페이지 보기</div>
+  <div class="container">
+    <section>
+      <div class="toggler">
+        <div id="effect" class="ui-widget-content ui-corner-all">
+          <h3 class="ui-widget-header ui-corner-all">안내문</h3>
+          <p>
+            개인정보보호법에 따라 아래 제공되는 개인정보는 연구 목적 외에는
+            사용되지 않습니다.
+          </p>
+        </div>
+      </div>
+      
+      <button id="toggle-btn">안내문 보이기/없애기</button>
+      
+      <h1>회원가입</h1>
+      <form action="">
+        <div>
+          <label for="first">이름</label>
+          <input type="text" id="first" name="firstname">
+        </div>
+        <div>
+          <label for="datepicker">생년월일</label>
+          <input type="text" id="datepicker" size="53">
+        </div>
+        <p>레벨 선택</p>
+        <div>
+          <input type="radio" name="course" id="basic" value="basic">
+          <label for="basic">초급</label>
+        </div>
+        <div>
+          <input type="radio" name="course" id="mid" value="mid">
+          <label for="mid">중급</label>
+        </div>
+        <div>
+          <input type="radio" name="course" id="expert" value="expert">
+          <label for="expert">상급</label>
+        </div>
+        <div>
+          <label for="email">이메일</label>
+          <input type="email" name="email" id="email" required>
+        </div>
+        <div>
+          <label for="password">패스워드</label>
+          <input type="password" name="password" id="password" required>
+        </div>
+        <div>
+          <label for="division">관심분야</label>
+          <select name="division" id="division">
+            <option value="it">IT</option>
+            <option value="artandculture">문화예술</option>
+            <option value="education">교육</option>
+            <option value="government">정부</option>
+          </select>
+        </div>
+        <button>가입하기</button>
+      </form>
+    </section>
+  </div>
+</body>
+</html>
